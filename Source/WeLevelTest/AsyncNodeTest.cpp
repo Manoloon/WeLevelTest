@@ -4,20 +4,18 @@
 
 #include "MyCharacter.h"
 
-UAsyncNodeTest *
-UAsyncNodeTest::WaitUntilKingMustDie(AMyCharacter* Target)
-{
+UAsyncNodeTest *UAsyncNodeTest::WaitUntilKingMustDie(AMyCharacter *Target) {
   UAsyncNodeTest *BlueprintNode = NewObject<UAsyncNodeTest>();
   BlueprintNode->TargetCharacter = Target;
   return BlueprintNode;
 }
 void UAsyncNodeTest::Activate() {
   Super::Activate();
-  if(IsValid(TargetCharacter)) {
-    TargetCharacter->Delegate_AllMustDie.AddUObject(this, &ThisClass::ExecuteWhenMustDie); 
-  } 
+  if (IsValid(TargetCharacter)) {
+    TargetCharacter->Delegate_AllMustDie.AddUObject(
+        this, &ThisClass::ExecuteWhenMustDie);
+  }
 }
-void UAsyncNodeTest::ExecuteWhenMustDie(bool bMustDie)
-{
-  KingMustDie.Broadcast(bMustDie);  
+void UAsyncNodeTest::ExecuteWhenMustDie(bool bMustDie) {
+  KingMustDie.Broadcast(bMustDie);
 }

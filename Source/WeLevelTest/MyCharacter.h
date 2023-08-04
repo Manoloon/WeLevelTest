@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
-DECLARE_MULTICAST_DELEGATE_OneParam(FAllMustDie,bool/*MustDie*/);
+DECLARE_MULTICAST_DELEGATE_OneParam(FAllMustDie, bool /*MustDie*/);
 
 UCLASS(Abstract)
 class WELEVELTEST_API AMyCharacter : public ACharacter {
@@ -13,8 +13,8 @@ class WELEVELTEST_API AMyCharacter : public ACharacter {
 
 public:
   FAllMustDie Delegate_AllMustDie;
-protected:
 
+protected:
   UFUNCTION(BlueprintCallable)
   void SetAllMustDie();
 

@@ -15,8 +15,10 @@
  */
 
 class AMyCharacter;
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FKingMustDie, bool, bMustDieNow);
-UCLASS(Blueprintable)
+
+UCLASS()
 class WELEVELTEST_API UAsyncNodeTest : public UBlueprintAsyncActionBase
 {
 	GENERATED_BODY()
